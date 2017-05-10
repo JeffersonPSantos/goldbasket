@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <h1 class="titulo">Portifólio de Investimentos</h1>
+      </div>
+    </header>
+    <main>
+      <section class="container tab-acao">
+          <h2 class="sub-titulo"> Carteira de Ações</h2>
+          <table id="tabela-acoes">
+              <thead>
+                  <tr>
+                      <th>Empresa</th>
+                      <th>Ticker</th>
+                      <th>Setor</th>
+                      <th>Preço (R$)</th>
+                      <th>Quantidade</th>
+                      <th>Custo (R$)</th>
+                      <th>Valor de Mercado (R$)</th>
+                      <th>Ganho (R$)</th>
+                      <th>Retorno (%)</th>
+                      <th>Peso (%)</th>
+                  </tr>
+              </thead>
+              <tbody id="tabela-acoes">
+                  <tr class="acao">
+                      <td class="info-empresa">Itaúsa</td>
+                      <td class="info-codigo">ITSA4</td>
+                      <td class="info-setor">Bancos</td>
+                      <td class="info-preco">9.74</td>
+                      <td class="info-qtd">300</td>
+                      <td class="info-custo">1000</td>
+                      <td class="info-valor">1200</td>
+                      <td class="info-ganho">179.31</td>
+                      <td class="info-retorno">6.54</td>
+                      <td class="info-peso">10</td>
+                  </tr>
+              </tbody>
+          </table>
+      </section>
+      </main>
+      <section class="container">
+      <h2 id="titulo-form">Adicionar nova Ação</h2>
+      <ul id="mensagens-erro"></ul>
+      <form id="form-adiciona">
+          <div class="grupo-info">
+              <label>Tipo:</label>
+              <select id="tipo" name="tipo" class="campo">
+                  <option value="comprar">Comprar</option>
+                  <option value="vender">Vender</option>
+              </select>
+          </div>
+          <div class="grupo">
+              <label>Código:</label>
+              <div class="lista-codigos">
+                  <input type="text" name="lista1">
+              </div>
+              <input id="adiciona-codigo"  name="codigo" type="text" placeholder="digite o código da ação" class="campo campo-medio">
+          </div>
+          <div class="grupo">
+              <label>Empresa:</label>
+              <input id="adiciona-empresa" name="empresa" type="text" placeholder="digite o nome da empresa" class="campo campo-medio">
+          </div>
+          <div class="grupo">
+              <label>Setor:</label>
+              <input id="adiciona-setor" name="setor" type="text" placeholder="digite o setor da empresa" class="campo campo-medio">
+          </div>
+          <div class="grupo">
+              <label>Data:</label>
+              <input id="adiciona-data" name="data" type="date" class="campo campo-medio" >
+          </div>
+          <div class="grupo">
+              <label>Quantidade:</label>
+              <input id="adiciona-quantidade" name="quantidade" type="text" placeholder="digite quantidade de ações" class="campo campo-medio">
+          </div>
+          <div class="grupo">
+              <label>Preço:</label>
+              <input id="adiciona-preco" name="preco" type="text" placeholder="digite o preco da ação" class="campo campo-medio">
+          </div>
+          <div class="grupo">
+              <label>Corretagem:</label>
+              <input id="adiciona-corretagem" name="corretagem" type="text" placeholder="digite o valor da corretagem" class="campo campo-medio">
+          </div>
+          <button id="adiciona-acao" class="botao bto-principal">Adicionar</button>
+      </form>
+  </section>
+  <script src="js/form.js"></script>
+  <script src="js/calcula-acao.js"></script>
+<script src="js/busca-codigo.js"></script>
+  </body>
+</html>
