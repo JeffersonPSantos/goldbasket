@@ -142,7 +142,7 @@ button[disabled=disabled], button:disabled{
     color: red;
 }
 
-.lista-codigos{
+.lista-ticker{
     display: none;
 
 }

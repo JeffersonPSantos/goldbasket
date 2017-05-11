@@ -1,0 +1,27 @@
+{
+  "name": "goldbasket",
+  "version": "1.0.0",
+  "description": "sistema de gestão de portifólios de investimento",
+  "main": "app.js",
+  "dependencies": {
+    "ejs": "^2.5.6",
+    "express": "^4.15.2",
+    "express-load": "^1.1.15",
+    "mysql": "^2.13.0",
+    "nodemon": "^1.11.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jpsantosgit/goldbasket.git"
+  },
+  "author": "Jefferson Pedro dos Santos",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jpsantosgit/goldbasket/issues"
+  },
+  "homepage": "https://github.com/jpsantosgit/goldbasket#readme"
+}
