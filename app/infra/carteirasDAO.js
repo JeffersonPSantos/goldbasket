@@ -3,7 +3,7 @@ function CarteirasDAO(connection) {
 }
 
 CarteirasDAO.prototype.lista = function (callback) {
-    this._connection.query('select * from transection_shares', callback);
+    this._connection.query('select * from shares_wallet', callback);
 }
 
 CarteirasDAO.prototype.salva = function (carteira, callback) {
