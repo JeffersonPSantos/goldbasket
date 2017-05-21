@@ -26,12 +26,18 @@
                     </tr>
                 </thead>
                 <tbody id="tabela-acoes">
-                        <% for(var i = 0; i < lista.length; i++) { %>
+                    <% for(var i = 0; i < lista.length; i++) { %>
 
                         <tr class="acao">
-                            <td><%= lista[i].date_buy %></td>
-                            <td><%= lista[i].price %></td>
-                            <td><%= lista[i].quantity %></td>
+                            <td>
+                                <%= lista[i].date_buy %>
+                            </td>
+                            <td>
+                                <%= lista[i].price %>
+                            </td>
+                            <td>
+                                <%= lista[i].quantity %>
+                            </td>
                         </tr>
 
                         <% } %>
@@ -42,26 +48,27 @@
     <section class="container">
         <h2 id="titulo-form">Adicionar nova Ação</h2>
         <ul id="mensagens-erro"></ul>
-        <form id="form-adiciona" action="/carteiras" method="post">
+        <form id="form-adiciona" action="/carteiras/acoes" method="post">
             <div class="erros">
                 <ul>
                     <% for(var i = 0; i < erros.length; i++) { %>
-                        <li><%= erros[i].msg %></li>
-                    <% } %>
+                        <li>
+                            <%= erros[i].msg %>
+                        </li>
+                        <% } %>
                 </ul>
             </div>
-          </div>
+            </div>
+            <div class="grupo-info">
+                <label for="type">Tipo:</label>
+                <select id="type" name="type" class="campo">
+                      <option value="buy">Comprar</option>
+                      <option value="sell">Vender</option>
+                </select>
+            </div>
             <div class="grupo">
                 <label for="adiciona-ticker">Código:</label>
                 <input id="adiciona-ticker" name="ticker" type="text" placeholder="digite o código da ação" class="campo campo-medio" disabled="true">
-            </div>
-            <div class="grupo">
-                <label for="adiciona-empresa">Empresa:</label>
-                <input id="adiciona-empresa" name="company_name" type="text" placeholder="digite o nome da empresa" class="campo campo-medio" disabled="true">
-            </div>
-            <div class="grupo">
-                <label for="adiciona-setor">Setor:</label>
-                <input id="adiciona-setor" name="sector" type="text" placeholder="digite o setor da empresa" class="campo campo-medio" disabled="true">
             </div>
             <div class="grupo">
                 <label for="adiciona-data">Data:</label>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+</head>
+
+<body>
+    <main>
+        <section>
+            <h2 class="sub-titulo">Transações</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Tipo</th>
+                        <th>Ticker</th>
+                        <th>Data</th>
+                        <th>Preço (R$)</th>
+                        <th>Quantidade</th>
+                        <th>Custo</th>
+                        <th>Valor Total</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    <% for(var i = 0; i < list.length; i++) { %>
+                        <tr>
+                            <td><%= list[i].type %></td>
+                            <td><%= list[i].ticker %></td>
+                            <td><%= list[i].date %></td>
+                            <td><%= list[i].price %></td>
+                            <td><%= list[i].quantity %></td>
+                            <td><%= list[i].cost %></td>
+                            <td><%= list[i].total_value %></td>
+                        </tr>
+                        <% } %>
+
+                </tbody>
+            </table>
+            <a href="/transacoes/acoes/form">return to form</a>
+        </section>
+    </main>
+</body>
+
+</html>

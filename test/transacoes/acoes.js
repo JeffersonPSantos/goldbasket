@@ -1,9 +1,7 @@
 var express = require('../config/express')();
 var request = require('supertest')(express);
 
-describe('TrasactionController', function () {
-
-
+describe('TransactionController', function () {
 
     it('#listagem de acoes html',function (done) {
         request.get('/transacoes/acoes')
