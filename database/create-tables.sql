@@ -25,4 +25,15 @@ SELECT shares.ticker, shares.company_name, shares.sector, buy_shares.date_buy, b
 FROM shares INNER JOIN buy_shares
 ON shares.id_share = buy_shares.id_share;
 
-CREATE TABLE shares_transaction (id_transaction int(10) NOT NULL AUTO_INCREMENT, type varchar(5) DEFAULT NULL, date date DEFAULT NULL, price decimal(10,4) DEFAULT NULL, quantity int(11) DEFAULT NULL, cash_value decimal(10,4) DEFAULT NULL, transaction_cost decimal(8,4) DEFAULT NULL, ticker varchar(10) DEFAULT NULL, PRIMARY KEY (id_transaction), FOREIGN KEY (ticker) REFERENCES shares(ticker));
+CREATE TABLE shares_transaction (
+    id_transaction int(10) NOT NULL AUTO_INCREMENT,
+    type varchar(5) DEFAULT NULL,
+    date date DEFAULT NULL,
+    price decimal(10,4) DEFAULT NULL,
+    quantity int(11) DEFAULT NULL,
+    total_value decimal(10,4) DEFAULT NULL,
+    cost decimal(8,4) DEFAULT NULL,
+    ticker varchar(10) DEFAULT NULL,
+    PRIMARY KEY (id_transaction),
+    FOREIGN KEY (ticker) REFERENCES shares(ticker)
+);
