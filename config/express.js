@@ -7,6 +7,7 @@ module.exports = function() {
 
     var app = express();
 
+    app.use(express.static('./app/public'));
     app.set('view engine', 'ejs');
     app.set('views', './app/views');
 
