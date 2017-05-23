@@ -23,10 +23,10 @@ function createDBConnection() {
         var url = process.env.CLEARDB_DATABASE_URL;
         var grupos = url.match(/mysql:\/\/(.*):(.*)@(.*)\/(.*)\?/);
         return mysql.createConnection({
-            host: grupo[3];
-            user: grupo[1];
-            password: grupo[2];
-            database: grupo[4];
+            host: grupo[3],
+            user: grupo[1],
+            password: grupo[2],
+            database: grupo[4]
         });
     }
 }
