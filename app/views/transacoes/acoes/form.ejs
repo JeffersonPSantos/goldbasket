@@ -1,9 +1,17 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Adiciona dados de transação</title>
+    <title>Goldbasket</title>
+    <link rel="stylesheet"  type="text/css" href="/css/form.css">
 </head>
 <body>
+    <header>
+        <div class="container">
+            <h1 class="titulo">Adicionar nova transação</h1>
+        </div>
+    </header>
+    <main>
+    <section class="container">
         <form id="add-form" action="/transacoes/acoes" method="post">
             <div class="erros">
                 <ul>
@@ -13,16 +21,16 @@
                 </ul>
             </div>
             </div>
-            <div class="grupo-info">
+            <div class="grupo">
                 <label for="type">Tipo:</label>
-                <select id="type" name="type" class="campo">
+                <select id="type" name="type" class="campo campo-medio">
                       <option value="buy">Comprar</option>
                       <option value="sell">Vender</option>
                 </select>
             </div>
             <div class="grupo">
                 <label for="ticker">Ticker:</label>
-                <input list="ticker-list" name="ticker">
+                <input list="ticker-list" name="ticker" class="campo campo-medio">
                 <datalist id="ticker-list">
                     <% for(var i = 0; i < tickers.length; i++){ %>
                     <option value="<%= tickers[i].ticker %>"><%= tickers[i].company_name %></option>
@@ -47,13 +55,13 @@
             </div>
             <button id="add-share" class="botao bto-principal">Adicionar</button>
         </form>
+        <div>
+            <a href="/transacoes/acoes">return to portfolio</a>
+        </div>
+        <div>
+            <a href="/">return to home page</a>
+        </div>
     </section>
-    <div>
-        <a href="/transacoes/acoes">return to portfolio</a>
-    </div>
-    <div>
-        <a href="/">return to home page</a>
-    </div>
 </body>
 
 </html>

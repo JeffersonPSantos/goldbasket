@@ -4,14 +4,18 @@
 <head>
     <meta charset="utf-8">
     <title></title>
-    <link rel="stylesheet" type="text/css" href="css/index.css">
+    <link rel="stylesheet" type="text/css" href="/css/lista.css">
 </head>
 
 <body>
+    <header>
+        <div class="container">
+            <h1 class="titulo">Transações</h1>
+        </div>
+    </header>
     <main>
-        <section>
-            <h2 class="sub-titulo">Transações</h2>
-            <table>
+        <section class="container tab-acao">
+            <table id="tabela-acoes">
                 <thead>
                     <tr>
                         <th>Tipo</th>
@@ -23,10 +27,10 @@
                         <th>Valor Total</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody id="tabela-acoes">
 
                     <% for(var i = 0; i < list.length; i++) { %>
-                        <tr>
+                        <tr class="acao">
                             <td><%= list[i].type %></td>
                             <td><%= list[i].ticker %></td>
                             <td><%= list[i].date %></td>
