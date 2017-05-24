@@ -11,15 +11,21 @@ module.exports = function (app) {
                 return next(error);
             }
 
-            // formata a propriedade 'data'
+            // formata os dados do 'results'
             var string = JSON.stringify(results);
             var json = JSON.parse(string);
             for (var i = 0; i < json.length; i++) {
                 var date = json[i].date.match(/(.*)-(.*)-(.*)T(.*)/);
                 var dateFormatted = date[3]+'/'+date[2]+'/'+date[1];
+                var priceFormatted = JSON.stringify(json[i].price).replace('.',',');
+                var costFormatted = JSON.stringify(json[i].cost).replace('.',',');
+                var valueFormatted = JSON.stringify(json[i].total_value).replace('.',',');
                 json[i].date = dateFormatted;
+                json[i].price = priceFormatted;
+                json[i].cost = costFormatted;
+                json[i].total_value = valueFormatted;
             }
-            
+
             res.format({
                 html: function () {
                     res.render('transacoes/acoes/lista', {list:json, error:{}});
