@@ -16,7 +16,6 @@ module.exports = function (app) {
             var date = json[0].date.match(/(.*)-(.*)-(.*)T(.*)/);
             var date_formated = date[3]+'/'+date[2]+'/'+date[1];
             json[0].date = date_formated;
-            console.log(json);
 
             res.format({
                 html: function () {
