@@ -5,11 +5,13 @@ var databaseCleaner = new DatabaseCleaner('mysql');
 
 describe('Transaction Controller', function () {
 
-    before(function (done) {
-        databaseCleaner.clean(express.infra.connectionFactory(), function () {
-            done();
+    if (process.NODE_ENV == 'test') {
+        before(function (done) {
+            databaseCleaner.clean(express.infra.connectionFactory(), function () {
+                done();
+            });
         });
-    });
+    }
 
     it('#cadastro de acoes tudo preenchido', function (done) {
         request.post('/transacoes/acoes')

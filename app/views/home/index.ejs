@@ -3,20 +3,43 @@
     <head>
         <meta charset="utf-8">
         <title>Goldbasket: Home</title>
+        <link rel="stylesheet" href="/css/reset.css">
         <link rel="stylesheet" href="/css/principal.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cabin">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Oswald:500">
     </head>
     <body>
-        <header>
-            <div class="container">
-                <h1 class="titulo">GoldBasket</h1>
-                <h2>Gestão de Portifólio de Investimentos</h2>
+        <div id="tudo">
+            <div id="conteudo">
+                <div id="topo">
+                    <h1 class="titulo">GoldBasket</h1>
+                    <h2 class="sub-titulo">Gestão de Portifólio de Investimentos</h2>
+                </div>
+                <div id="principal">
+                    <h3>Página Principal</h3>
+                </div>
+                <!-- Fim da div#principal -->
+                <div id="menu-lateral">
+                    <aside>
+                        <nav>
+                            <h4>Carteira de Ativos</h4>
+                            <ul>
+                                <li><a id="menu-ativos" href="/transacoes/acoes">Ações</a></li>
+                                <li><a id="menu-ativos" href="/transacoes/acoes">Fundos</a></li>
+                                <li><a id="menu-ativos" href="/transacoes/acoes">Titulos Públicos</a></li>
+                                <li><a id="menu-ativos" href="/transacoes/acoes">Títulos Privados</a></li>
+                            </ul>
+                        </nav>
+                    </aside>
+                </div>
+                <!-- Fim da div#auxiliar -->
+                <div class="clear"></div>
             </div>
-        </header>
-        <main class="container">
-            <p>Carteiras:</p>
-            <div>
-                <a href="/transacoes/acoes">Carteira de Açoes</a>
+            <!-- Fim da div#conteudo -->
+            <div id="rodape">
+                &copy; Goldbasket
             </div>
-        </main>
+        </div>
+        <!-- Fim da div#tudo -->
     </body>
 </html>
