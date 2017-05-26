@@ -1,67 +1,71 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <title>Goldbasket</title>
-    <link rel="stylesheet"  type="text/css" href="/css/form.css">
-</head>
-<body>
-    <header>
-        <div class="container">
-            <h1 class="titulo">Adicionar nova transação</h1>
-        </div>
-    </header>
-    <main>
-    <section class="container">
-        <form id="add-form" action="/transacoes/acoes" method="post">
-            <div class="erros">
-                <ul>
-                    <% for(var i = 0; i < errorValidation.length; i++){ %>
-                        <li><%= errorValidation[i].msg %></li>
-                    <% } %>
-                </ul>
+    <head>
+        <title>Goldbasket</title>
+        <link rel="stylesheet"  type="text/css" href="/css/reset.css">
+        <link rel="stylesheet"  type="text/css" href="/css/form.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cabin">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Oswald:500">
+    </head>
+    <body>
+        <header>
+            <div class="container">
+                <h1 class="titulo">Adicionar nova transação</h1>
             </div>
+        </header>
+        <main>
+        <section class="container">
+            <form id="add-form" action="/transacoes/acoes" method="post">
+                <div class="erros">
+                    <ul>
+                        <% for(var i = 0; i < errorValidation.length; i++){ %>
+                            <li><%= errorValidation[i].msg %></li>
+                        <% } %>
+                    </ul>
+                </div>
+                </div>
+                <div class="grupo">
+                    <label for="type">Tipo:</label>
+                    <select id="type" name="type" class="campo campo-medio">
+                          <option value="buy">Comprar</option>
+                          <option value="sell">Vender</option>
+                    </select>
+                </div>
+                <div class="grupo">
+                    <label for="ticker">Ticker:</label>
+                    <input list="ticker-list" name="ticker" class="campo campo-medio">
+                    <datalist id="ticker-list">
+                        <% for(var i = 0; i < tickers.length; i++){ %>
+                        <option value="<%= tickers[i].ticker %>"><%= tickers[i].company_name %></option>
+                        <% } %>
+                    </datalist>
+                </div>
+                <div class="grupo">
+                    <label for="add-date">Data:</label>
+                    <input id="add-date" name="date" type="date" class="campo campo-medio">
+                </div>
+                <div class="grupo">
+                    <label for="add-quantity">Quantidade:</label>
+                    <input id="add-quantity" name="quantity" type="text" placeholder="digite quantidade de ações" class="campo campo-medio">
+                </div>
+                <div class="grupo">
+                    <label for="add-price">Preço:</label>
+                    <input id="add-price" name="price" type="text" placeholder="digite o preco da ação" class="campo campo-medio">
+                </div>
+                <div class="grupo">
+                    <label for="add-brokerage">Corretagem:</label>
+                    <input id="add-brokerage" name="cost" type="text" placeholder="digite o valor da corretagem" class="campo campo-medio">
+                </div>
+                <button id="add-share" class="botao bto-principal">Adicionar</button>
+            </form>
+            <div>
+                <a href="/transacoes/acoes">Return to portfolio</a>
             </div>
-            <div class="grupo">
-                <label for="type">Tipo:</label>
-                <select id="type" name="type" class="campo campo-medio">
-                      <option value="buy">Comprar</option>
-                      <option value="sell">Vender</option>
-                </select>
+            <div>
+                <a href="/">Home Page</a>
             </div>
-            <div class="grupo">
-                <label for="ticker">Ticker:</label>
-                <input list="ticker-list" name="ticker" class="campo campo-medio">
-                <datalist id="ticker-list">
-                    <% for(var i = 0; i < tickers.length; i++){ %>
-                    <option value="<%= tickers[i].ticker %>"><%= tickers[i].company_name %></option>
-                    <% } %>
-                </datalist>
-            </div>
-            <div class="grupo">
-                <label for="add-date">Data:</label>
-                <input id="add-date" name="date" type="date" class="campo campo-medio">
-            </div>
-            <div class="grupo">
-                <label for="add-quantity">Quantidade:</label>
-                <input id="add-quantity" name="quantity" type="text" placeholder="digite quantidade de ações" class="campo campo-medio">
-            </div>
-            <div class="grupo">
-                <label for="add-price">Preço:</label>
-                <input id="add-price" name="price" type="text" placeholder="digite o preco da ação" class="campo campo-medio">
-            </div>
-            <div class="grupo">
-                <label for="add-brokerage">Corretagem:</label>
-                <input id="add-brokerage" name="cost" type="text" placeholder="digite o valor da corretagem" class="campo campo-medio">
-            </div>
-            <button id="add-share" class="botao bto-principal">Adicionar</button>
-        </form>
-        <div>
-            <a href="/transacoes/acoes">Return to portfolio</a>
-        </div>
-        <div>
-            <a href="/">Home Page</a>
-        </div>
-    </section>
-</body>
-
+            <ul id="error-message"></ul>
+        </section>
+        <script src="/js/form.js" charset="utf-8"></script>
+    </body>
 </html>

@@ -1,162 +1,112 @@
-var botaoAdicionar = document.querySelector("#adiciona-acao");
-botaoAdicionar.addEventListener("click", function (event) {
+var buttonAdd = document.querySelector("#add-share");
+buttonAdd.addEventListener("click", function (event) {
   event.preventDefault();
 
-  var form = document.querySelector("#form-adiciona");
+  var form = document.querySelector("#add-form");
 
-  var acao = obtemAcaoDoFormulario(form);
+  var share = getShareForm(form);
 
   // valida o formulário
-  var erros = validaAcao(acao, form);
+  var errors = shareValidation(share, form);
 
-  if (erros.length > 0) {
-    exibeMensagemDeErro(erros);
+  if (errors.length > 0) {
+    displayErrorMessage(errors);
     return;
   }
 
-  adicionaAcaoNaTabela(acao)
-
   // limpa mensagens da <ul> e reinicia o formulário <form>
-  document.querySelector("#mensagens-erro").innerHTML = "";
-  form.reset();
+  document.querySelector("#error-message").innerHTML = "";
+  //form.reset();
+
+  form.submit();
+
 });
 
-function adicionaAcaoNaTabela(acao){
-    // inclui na tabela
-    var tabela = document.querySelector("#tabela-acoes");
+function getShareForm(form) {
 
-    tabela.appendChild(montaTr(acao));
+    var share = {
+      ticker: form.ticker.value,
+      date: form.date.value,
+      quantity: form.quantity.value,
+      price: form.price.value,
+      brokerage: form.cost.value,
+      //cost: calculaCusto(form.brokerage.value, form.quantity.value, form.price.value).toFixed(2),
+      //value: (form.price.value * form.quantity.value).toFixed(2),
+      //gain: calculaGanho(form.brokerage.value, form.quantity.value, form.price.value).toFixed(2),
+      //overallReturn: calculaRetorno(form.brokerage.value, form.quantity.value, form.price.value).toFixed(2)
+
+    }
+
+    return share;
 }
 
-function obtemAcaoDoFormulario(form) {
+function shareValidation(share, form) {
 
-    var acao = {
-      empresa: form.empresa.value,
-      codigo: form.codigo.value,
-      setor: form.setor.value,
-      data: form.data.value,
-      quantidade: form.quantidade.value,
-      preco: form.preco.value,
-      corretagem: form.corretagem.value,
-      custo: calculaCusto(form.corretagem.value, form.quantidade.value, form.preco.value).toFixed(2),
-      valor: (form.preco.value * form.quantidade.value).toFixed(2),
-      ganho: calculaGanho(form.corretagem.value, form.quantidade.value, form.preco.value).toFixed(2),
-      retorno: calculaRetorno(form.corretagem.value, form.quantidade.value, form.preco.value).toFixed(2)
+    var errors = [];
 
-    }
-
-    return acao;
-}
-
-function validaAcao(acao, form) {
-
-    var erros = [];
-
-    if (acao.corretagem.length == 0) {
-        erros.push("O campo 'Corretagem' não pode ficar em branco.");
-        form.corretagem.classList.add("campo-valido");
-        form.corretagem.focus();
-      } else if (acao.corretagem < 0) {
-        erros.push("'Corretagem' não pode ser menor que 0.");
-        form.corretagem.classList.add("campo-valido");
-        form.corretagem.focus();
+    if (share.brokerage.length == 0) {
+        errors.push("O campo 'Corretagem' não pode ficar em branco.");
+        form.cost.classList.add("campo-valido");
+        form.cost.focus();
+    } else if (share.brokerage < 0) {
+        errors.push("'Corretagem' não pode ser menor que 0.");
+        form.cost.classList.add("campo-valido");
+        form.cost.focus();
       } else {
-      form.corretagem.classList.remove("campo-valido");
+      form.cost.classList.remove("campo-valido");
     }
 
-    if (acao.preco.length == 0) {
-        erros.push("O campo 'Preço' não pode ficar em branco.");
-        form.preco.classList.add("campo-valido");
-        form.preco.focus();
-      } else if (acao.preco < 0) {
-        erros.push("'Preço' não pode ser menor que 0.");
-        form.preco.classList.add("campo-valido");
-        form.preco.focus();
+    if (share.price.length == 0) {
+        errors.push("O campo 'Preço' não pode ficar em branco.");
+        form.price.classList.add("campo-valido");
+        form.price.focus();
+    } else if (share.price < 0) {
+        errors.push("'Preço' não pode ser menor que 0.");
+        form.price.classList.add("campo-valido");
+        form.price.focus();
     } else {
-      form.preco.classList.remove("campo-valido");
+      form.price.classList.remove("campo-valido");
     }
 
-    if (acao.quantidade.length == 0) {
-        erros.push("O campo 'Quantidade' não pode ficar em branco.");
-        form.quantidade.classList.add("campo-valido");
-        form.quantidade.focus();
-    } else if (acao.quantidade <= 0) {
-      erros.push("'Quantidade' não pode ser menor que 1.");
-      form.quantidade.classList.add("campo-valido");
-      form.quantidade.focus();
+    if (share.quantity.length == 0) {
+        errors.push("O campo 'Quantidade' não pode ficar em branco.");
+        form.quantity.classList.add("campo-valido");
+        form.quantity.focus();
+    } else if (share.quantity <= 0) {
+      errors.push("'Quantidade' não pode ser menor que 1.");
+      form.quantity.classList.add("campo-valido");
+      form.quantity.focus();
     } else {
-      form.quantidade.classList.remove("campo-valido");
+      form.quantity.classList.remove("campo-valido");
     }
 
-    if (acao.data.length == 0) {
-        erros.push("O campo 'Data' não pode ficar em branco.");
-        form.data.classList.add("campo-valido");
-        form.data.focus();
+    if (share.date.length == 0) {
+        errors.push("O campo 'Data' não pode ficar em branco.");
+        form.date.classList.add("campo-valido");
+        form.date.focus();
     } else {
-      form.data.classList.remove("campo-valido");
+      form.date.classList.remove("campo-valido");
     }
 
-    if (acao.setor.length == 0) {
-        erros.push("O campo 'Setor' não pode fica em branco.");
-        form.setor.classList.add("campo-valido");
-        form.setor.focus();
-    } else {
-      form.setor.classList.remove("campo-valido");
-    }
-
-    if (acao.empresa.length == 0) {
-      erros.push("O campo 'Empresa' não pode ficar em branco.");
-      form.empresa.classList.add("campo-valido");
-      form.empresa.focus();
-    } else {
-      form.empresa.classList.remove("campo-valido");
-    }
-
-    if (acao.codigo.length == 0) {
-        erros.push("O campo 'Código' não pode ficar em branco.");
-        form.codigo.classList.add("campo-valido");
-        form.codigo.focus();
+    if (share.ticker.length == 0) {
+        errors.push("O campo 'Código' não pode ficar em branco.");
+        form.ticker.classList.add("campo-valido");
+        form.ticker.focus();
       } else {
-        form.codigo.classList.remove("campo-valido");
+        form.ticker.classList.remove("campo-valido");
       }
 
-    return erros;
+    return errors;
 }
 
-function exibeMensagemDeErro(erros) {
+function displayErrorMessage(erros) {
 
-    var ul = document.querySelector("#mensagens-erro");
+    var ul = document.querySelector("#error-message");
     ul.innerHTML = "";
 
-    erros.forEach(function (erro) {
+    erros.forEach(function (error) {
         var li = document.createElement("li");
-        li.textContent = erro;
+        li.textContent = error;
         ul.appendChild(li);
     });
-}
-
-function montaTr(acao) {
-    var tr = document.createElement("tr");
-    tr.classList.add("acao");
-
-    tr.appendChild(montaTd(acao.empresa, "info-empresa"));
-    tr.appendChild(montaTd(acao.codigo, "info-codigo"));
-    tr.appendChild(montaTd(acao.setor, "info-setor"));
-    tr.appendChild(montaTd(acao.preco, "info-preco"));
-    tr.appendChild(montaTd(acao.quantidade, "info-quantidade"));
-    tr.appendChild(montaTd(acao.custo, "info-custo"));
-    tr.appendChild(montaTd(acao.valor, "info-valor"));
-    tr.appendChild(montaTd(acao.ganho, "info-ganho"));
-    tr.appendChild(montaTd(acao.retorno, "info-retorno"));
-    tr.appendChild(montaTd("", "info-peso"));
-
-    return tr;
-}
-
-function montaTd(dado, classe) {
-    var td = document.createElement("td");
-    td.classList.add(classe);
-    td.textContent = dado;
-
-    return td;
 }

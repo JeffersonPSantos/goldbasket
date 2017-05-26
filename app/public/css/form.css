@@ -3,7 +3,7 @@
 }
 
 body{
-  font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial;
+  font-family: 'Cabin', Arial, sans-serif;
 }
 
 header{
@@ -93,4 +93,12 @@ button:active{
 button[disabled=disabled], button:disabled{
   background-color: gray;
   border-color: darkgray;
+}
+
+.campo-valido {
+    background-color: #fba69d;
+}
+
+#error-message {
+    color: red;
 }
