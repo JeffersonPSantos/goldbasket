@@ -30,11 +30,6 @@ function getShareForm(form) {
       quantity: form.quantity.value,
       price: form.price.value,
       brokerage: form.cost.value,
-      //cost: calculaCusto(form.brokerage.value, form.quantity.value, form.price.value).toFixed(2),
-      //value: (form.price.value * form.quantity.value).toFixed(2),
-      //gain: calculaGanho(form.brokerage.value, form.quantity.value, form.price.value).toFixed(2),
-      //overallReturn: calculaRetorno(form.brokerage.value, form.quantity.value, form.price.value).toFixed(2)
-
     }
 
     return share;

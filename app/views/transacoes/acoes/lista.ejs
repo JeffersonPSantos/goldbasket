@@ -21,6 +21,7 @@
             <table id="tabela-acoes">
                 <thead>
                     <tr>
+                        <th class="select-transaction"><input type="checkbox" name="delete" value=""></th>
                         <th>Tipo</th>
                         <th>Ticker</th>
                         <th>Data</th>
@@ -34,6 +35,7 @@
 
                     <% for(var i = 0; i < list.length; i++) { %>
                         <tr class="acao">
+                            <td><input type="checkbox" name="delete" value=""></td>
                             <td><%= list[i].type %></td>
                             <td><%= list[i].ticker %></td>
                             <td><%= list[i].date %></td>
