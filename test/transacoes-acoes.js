@@ -42,4 +42,16 @@ describe('Transaction Controller', function () {
         .expect('Content-Type', /json/)
         .expect(200, done)
     });
+
+    it('#remoção de transações', function (done) {
+        request.post('/transacoes/acoes/')
+        .send({
+            id_transaction: 52
+        })
+        .expect(302)
+        .end(function (error, response) {
+            done();
+        })
+    });
+
 });

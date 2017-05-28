@@ -13,6 +13,13 @@ img {
     margin-left: 30px;
 }
 
+#topo a {
+        display: inline-block;
+        float: right;
+        margin-right: 30px;
+        margin-top: 30px;
+}
+
 #tudo {
     min-height: 100%;
     position: relative;
@@ -21,6 +28,7 @@ img {
 
 #topo {
     padding: 30px;
+    width: 100%;
 }
 
 #rodape {

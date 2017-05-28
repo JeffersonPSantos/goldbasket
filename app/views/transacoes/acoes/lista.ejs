@@ -1,58 +1,59 @@
 <!DOCTYPE html>
 <html>
-
-<head>
-    <meta charset="utf-8">
-    <title></title>
-    <link rel="stylesheet"  type="text/css" href="/css/reset.css">
-    <link rel="stylesheet" type="text/css" href="/css/lista.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cabin">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Oswald:500">
-</head>
-
-<body>
-    <header>
-        <div class="container">
-            <h1 class="titulo">Transações</h1>
-        </div>
-    </header>
-    <main>
-        <section class="container tab-acao">
-            <table id="tabela-acoes">
-                <thead>
-                    <tr>
-                        <th class="select-transaction"><input type="checkbox" name="delete" value=""></th>
-                        <th>Tipo</th>
-                        <th>Ticker</th>
-                        <th>Data</th>
-                        <th>Preço (R$)</th>
-                        <th>Quantidade</th>
-                        <th>Custo</th>
-                        <th>Valor Total</th>
-                    </tr>
-                </thead>
-                <tbody id="tabela-acoes">
-
-                    <% for(var i = 0; i < list.length; i++) { %>
-                        <tr class="acao">
-                            <td><input type="checkbox" name="delete" value=""></td>
-                            <td><%= list[i].type %></td>
-                            <td><%= list[i].ticker %></td>
-                            <td><%= list[i].date %></td>
-                            <td><%= list[i].price %></td>
-                            <td><%= list[i].quantity %></td>
-                            <td><%= list[i].cost %></td>
-                            <td><%= list[i].total_value %></td>
+    <head>
+        <meta charset="utf-8">
+        <title>Goldbasket</title>
+        <link rel="icon" href="/img/icon.png">
+        <link rel="stylesheet"  type="text/css" href="/css/reset.css">
+        <link rel="stylesheet" type="text/css" href="/css/lista.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cabin">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Oswald:500">
+    </head>
+    <body>
+        <header>
+            <div class="container">
+                <h1 class="titulo">Transações</h1>
+            </div>
+        </header>
+        <main>
+            <section class="container tab-acao">
+                <table id="tabela-acoes">
+                    <thead>
+                        <tr>
+                            <th><input id="check-transaction" type="checkbox" name="delete-all" value=""></th>
+                            <th>Tipo</th>
+                            <th>Ticker</th>
+                            <th>Data</th>
+                            <th>Preço (R$)</th>
+                            <th>Quantidade</th>
+                            <th>Custo</th>
+                            <th>Valor Total</th>
                         </tr>
-                        <% } %>
+                    </thead>
+                    <tbody id="trasaction-share">
 
-                </tbody>
-            </table>
-        </section>
-        <div class="add-transaction">
-            <a href="/transacoes/acoes/form">Add transaction data</a>
-        </div>
-    </main>
-</body>
+                        <% for(var i = 0; i < list.length; i++) { %>
+                            <tr id="<%= list[i].id_transaction %>" class="acao">
+                                <td><input id="check-transaction" type="checkbox" name="delete" value=""></td>
+                                <td><%= list[i].type %></td>
+                                <td><%= list[i].ticker %></td>
+                                <td><%= list[i].date %></td>
+                                <td><%= list[i].price %></td>
+                                <td><%= list[i].quantity %></td>
+                                <td><%= list[i].cost %></td>
+                                <td><%= list[i].total_value %></td>
+                            </tr>
+                            <% } %>
 
+                    </tbody>
+                </table>
+            </section>
+            <input id="btn-delete" class="botao bto-principal" type="submit" name="btn-deletar" value="Deletar">
+            <input id="btn-alterar" class="botao bto-principal" type="submit" name="btn-alterar" value="Editar">
+            <div class="add-transaction">
+                <a href="/transacoes/acoes/form">Add transaction data</a>
+            </div>
+        </main>
+        <script src="/js/removeTransaction.js" charset="utf-8"></script>
+    </body>
 </html>

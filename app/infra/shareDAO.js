@@ -14,6 +14,10 @@ ShareDAO.prototype.save = function (share, callback) {
     this._connection.query('insert into shares_transaction (type, ticker, date, quantity, price, cost, total_value) values (?, ?, ?, ?, ?, ?, ?)', [share.type, share.ticker, share.date, share.quantity, share.price, share.cost, share.total_value], callback);
 }
 
+ShareDAO.prototype.remove = function (share, callback) {
+    this._connection.query('delete from shares_transaction where id_transaction = ?', [share.id_transaction], callback);
+}
+
 module.exports = function () {
     return ShareDAO;
 }

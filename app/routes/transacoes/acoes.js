@@ -87,7 +87,6 @@ module.exports = function (app) {
             return;
         }
 
-        console.log(trasaction);
 
         var connection = app.infra.connectionFactory();
         var shareDAO = new app.infra.shareDAO(connection);
@@ -99,5 +98,22 @@ module.exports = function (app) {
             res.redirect('/transacoes/acoes');
         });
         connection.end();
+    });
+
+    // controller que remove transacoes da lista
+    app.delete('/transacoes/acoes/:id', function (req, res, next) {
+
+        var id = req.params.id;
+
+        var trasaction = {
+            id_transaction:id
+        }
+
+        var connection = app.infra.connectionFactory();
+        var shareDAO = new app.infra.shareDAO(connection);
+        shareDAO.remove(trasaction, function (error, results) {
+            res.redirect('/transacoes/acoes');
+        });
+
     });
 }
