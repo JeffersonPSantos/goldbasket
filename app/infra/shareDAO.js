@@ -15,7 +15,7 @@ ShareDAO.prototype.save = function (share, callback) {
 }
 
 ShareDAO.prototype.remove = function (share, callback) {
-    this._connection.query('delete from shares_transaction where id_transaction = ?', [share.id_transaction], callback);
+    this._connection.query('delete from shares_transaction where id_transaction = ?', share, callback);
 }
 
 module.exports = function () {

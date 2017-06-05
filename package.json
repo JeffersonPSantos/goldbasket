@@ -1,42 +1,43 @@
 {
-    "name": "goldbasket",
-    "version": "1.0.0",
-    "description": "sistema de gestão de portifólios de investimento",
-    "engines": {
-        "node": "6.10.3"
-    },
-    "main": "app.js",
-    "scripts": {
-        "start": "node app.js",
-        "test": "NODE_ENV=test ./node_modules/mocha/bin/mocha --reporter spec"
-    },
-    "dependencies": {
-        "body-parser": "^1.17.1",
-        "ejs": "^2.5.6",
-        "express": "^4.15.2",
-        "express-load": "^1.1.15",
-        "express-validator": "^3.2.0",
-        "mysql": "^2.13.0",
-        "nodemon": "^1.11.0"
-    },
-    "devDependencies": {
-        "database-cleaner": "^1.2.0",
-        "mocha": "^3.4.1",
-        "supertest": "^3.0.0"
-    },
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/jpsantosgit/goldbasket.git"
-    },
-    "keywords": [
-        "node",
-        "heroku",
-        "express"
-    ],
-    "author": "Jefferson Pedro dos Santos",
-    "license": "ISC",
-    "bugs": {
-        "url": "https://github.com/jpsantosgit/goldbasket/issues"
-    },
-    "homepage": "https://github.com/jpsantosgit/goldbasket#readme"
+  "name": "goldbasket",
+  "version": "1.0.0",
+  "description": "sistema de gestão de portifólios de investimento",
+  "engines": {
+    "node": "6.10.3"
+  },
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "NODE_ENV=test ./node_modules/mocha/bin/mocha --reporter spec"
+  },
+  "dependencies": {
+    "body-parser": "^1.17.1",
+    "ejs": "^2.5.6",
+    "express": "^4.15.2",
+    "express-load": "^1.1.15",
+    "express-validator": "^3.2.0",
+    "materialize-css": "^0.98.2",
+    "mysql": "^2.13.0",
+    "nodemon": "^1.11.0"
+  },
+  "devDependencies": {
+    "database-cleaner": "^1.2.0",
+    "mocha": "^3.4.1",
+    "supertest": "^3.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jpsantosgit/goldbasket.git"
+  },
+  "keywords": [
+    "node",
+    "heroku",
+    "express"
+  ],
+  "author": "Jefferson Pedro dos Santos",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jpsantosgit/goldbasket/issues"
+  },
+  "homepage": "https://github.com/jpsantosgit/goldbasket#readme"
 }

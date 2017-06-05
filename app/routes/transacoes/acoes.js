@@ -101,19 +101,19 @@ module.exports = function (app) {
     });
 
     // controller que remove transacoes da lista
-    app.delete('/transacoes/acoes/:id', function (req, res, next) {
+    app.post('/transacoes', function (req, res, next) {
 
-        var id = req.params.id;
+        var ids = req.body.ids;
 
-        var trasaction = {
-            id_transaction:id
+        for (var i = 0; i < ids.length; i++) {
+            var connection = app.infra.connectionFactory();
+            var shareDAO = new app.infra.shareDAO(connection);
+
+            shareDAO.remove(ids[i], function (error, results) {
+            });
+
+            connection.end();
         }
-
-        var connection = app.infra.connectionFactory();
-        var shareDAO = new app.infra.shareDAO(connection);
-        shareDAO.remove(trasaction, function (error, results) {
-            res.redirect('/transacoes/acoes');
-        });
-
+        res.redirect('/transacoes/acoes');
     });
 }

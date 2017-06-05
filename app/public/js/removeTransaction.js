@@ -1,37 +1,46 @@
-var transactionTable = document.querySelector('#tabela-acoes');
+var checkboxes = $('#transaction-shares').find('input')
+var allCheckbox = $('#all-checked');
+var deleteButton = $('#btn-delete');
 
-var allChecked = document.querySelector('#check-transaction');
+allCheckbox.click(function () {
 
-allChecked.addEventListener('click', function () {
-
-    var allChecked = document.querySelectorAll('#check-transaction');
-
-    if (this.checked) {
-        for (var i = 0; i < allChecked.length; i++) {
-            allChecked[i].checked = true;
+    if ($(this)['0'].checked) {
+        for (var i = 0; i < checkboxes.length; i++) {
+            $(checkboxes[i])['0'].checked = true;
         }
     } else {
-        for (var i = 0; i < allChecked.length; i++) {
-            allChecked[i].checked = false;
+        for (var i = 0; i < checkboxes.length; i++) {
+            $(checkboxes[i])['0'].checked = false;
         }
     }
+
 });
 
-transactionTable.addEventListener('click', function () {
 
-        var selectedTransaction = event.target;
-        var buttonDelete = document.getElementById('btn-delete');
+deleteButton.click(function () {
 
-        if (selectedTransaction.checked){
+    var transaction = checkboxes.parent().parent();
+    var ids = [];
 
-            var shareID = selectedTransaction.parentNode.parentNode.id;
-
-            buttonDelete.addEventListener('click', function () {
-                var request  = new XMLHttpRequest();
-                request.open("DELETE", '/transacoes/acoes/' + shareID);
-                request.send();
-            });
-
+    for (var i = 0; i < checkboxes.length; i++) {
+        if ($(checkboxes[i])['0'].checked) {
+            ids.push(transaction[i].id)
         }
+    }
 
+    var send = $.ajax({
+        url: '/transacoes',
+        type: 'POST',
+        contentType: 'application/json',
+        data: JSON.stringify({ids : ids}),
     });
+
+    for (var i = 0; i < ids.length; i++) {
+        for (var j = 0; j < transaction.length; j++) {
+            if (transaction[j].id == ids[i]) {
+                $(transaction[j]).hide(800);
+            }
+        }
+    }
+
+});
