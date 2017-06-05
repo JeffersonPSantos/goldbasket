@@ -1,0 +1,14 @@
+.titulo {
+    font-size: 2em;
+}
+
+.buttons {
+    margin-top: 20px;
+
+}
+
+.buttons a {
+    margin-right: 20px;
+    margin-left: 10px;
+
+}

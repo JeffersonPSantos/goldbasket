@@ -1,13 +1,17 @@
 <!DOCTYPE html>
 <html>
     <head>
+
         <meta charset="utf-8">
         <title>Goldbasket</title>
         <link rel="icon" href="/img/icon.png">
         <link rel="stylesheet"  type="text/css" href="/css/reset.css">
-        <link rel="stylesheet" type="text/css" href="/css/lista.css">
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cabin">
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Oswald:500">
+        <link rel="stylesheet" href="/css/libs/google-fonts.css">
+        <link rel="stylesheet" href="/css/libs/materialize.min.css" media="screen,projection">
+        <link rel="stylesheet" type="text/css" href="/css/estilo-lista.css">
+        <!--Let browser know website is optimized for mobile-->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
     </head>
     <body>
         <header>
@@ -16,44 +20,76 @@
             </div>
         </header>
         <main>
+            <section class="container">
+
+                <div class="row">
+
+                    <div class="input-field col s4 grupo">
+                        <input id="search-type" name="search-type" type="search"  placeholder="por tipo">
+                        <label class="label-icon" for="search-type"><i class="material-icons">search</i></label>
+                    </div>
+
+                    <div class="input-field col s4 grupo">
+                        <input id="search-ticker" name="search-ticker" type="search" placeholder="por código">
+                        <label class="label-icon" for="search-ticker"><i class="material-icons">search</i></label>
+                    </div>
+
+                    <div class="input-field col s4 grupo">
+                        <input id="search-date" name="search-date" type="search" placeholder="por data">
+                        <label class="label-icon" for="search-date"><i class="material-icons">search</i></label>
+                    </div>
+                </div>
+
+            </section>
             <section class="container tab-acao">
-                <table id="tabela-acoes">
+                <table id="tabela-acoes" class="striped">
                     <thead>
                         <tr>
-                            <th><input id="check-transaction" type="checkbox" name="delete-all" value=""></th>
+                            <th>
+                                <input type="checkbox" id="all-checked"/>
+                                <label for="all-checked"></label>
+                            </th>
                             <th>Tipo</th>
                             <th>Ticker</th>
                             <th>Data</th>
                             <th>Preço (R$)</th>
                             <th>Quantidade</th>
-                            <th>Custo</th>
-                            <th>Valor Total</th>
+                            <th>Custo (R$)</th>
+                            <th>Valor Total (R$)</th>
                         </tr>
                     </thead>
-                    <tbody id="trasaction-share">
+                    <tbody id="transaction-shares">
 
                         <% for(var i = 0; i < list.length; i++) { %>
                             <tr id="<%= list[i].id_transaction %>" class="acao">
-                                <td><input id="check-transaction" type="checkbox" name="delete" value=""></td>
-                                <td><%= list[i].type %></td>
-                                <td><%= list[i].ticker %></td>
-                                <td><%= list[i].date %></td>
-                                <td><%= list[i].price %></td>
-                                <td><%= list[i].quantity %></td>
-                                <td><%= list[i].cost %></td>
-                                <td><%= list[i].total_value %></td>
+                                <td class="type-checkbox">
+                                    <input type="checkbox" id="stock-<%= list[i].id_transaction %>"/>
+                                    <label for="stock-<%= list[i].id_transaction %>"></label>
+                                </td>
+                                <td class="type-info"><%= list[i].type %></td>
+                                <td class="ticker-info"><%= list[i].ticker %></td>
+                                <td class="date-info"><%= list[i].date %></td>
+                                <td class="price-info"><%= list[i].price %></td>
+                                <td class="quantity-info"><%= list[i].quantity %></td>
+                                <td class="cost-info"><%= list[i].cost %></td>
+                                <td class="total_value-info"><%= list[i].total_value %></td>
                             </tr>
-                            <% } %>
+                        <% } %>
 
                     </tbody>
                 </table>
             </section>
-            <input id="btn-delete" class="botao bto-principal" type="submit" name="btn-deletar" value="Deletar">
-            <input id="btn-alterar" class="botao bto-principal" type="submit" name="btn-alterar" value="Editar">
-            <div class="add-transaction">
-                <a href="/transacoes/acoes/form">Add transaction data</a>
-            </div>
+            <section class="container buttons">
+                <a id="btn-delete" type="submit" class="btn-floating waves-effect waves-light btn-large red" name="btn-deletar"><i class="material-icons">delete</i></a>
+
+                <a id="btn-alterar" type="submit" class="btn-floating btn-large waves-effect waves-light blue" name="btn-editar"><i class="material-icons">mode_edit</i></a>
+
+                <a href="/transacoes/acoes/form" id="btn-alterar" type="submit" class="btn-floating btn-large waves-effect waves-light green" name="btn-alterar"><i class="material-icons">add</i></a>
+            </section>
         </main>
-        <script src="/js/removeTransaction.js" charset="utf-8"></script>
+        <script src="/js/libs/jquery.js"></script>
+        <script type="text/javascript" src="/js/libs/materialize.min.js"></script>
+        <script src="/js/removeTransaction.js"></script>
+        <script src="/js/transactionsFilter.js"></script>
     </body>
 </html>
