@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+        <meta charset="utf-8">
+        <title>Goldbasket</title>
+        <link rel="icon" href="/img/icon.png">
+        <link rel="stylesheet"  type="text/css" href="/css/reset.css">
+        <link rel="stylesheet" href="/css/libs/google-fonts.css">
+        <link rel="stylesheet" href="/css/libs/materialize.min.css" media="screen,projection">
+        <link rel="stylesheet" type="text/css" href="/css/estilo-lista.css">
+        <!--Let browser know website is optimized for mobile-->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+    </head>
+    <body>
+        <header>
+            <div class="container">
+                <h1 class="titulo">Carteira de Ações</h1>
+            </div>
+        </header>
+        <main>
+
+            <section class="container tab-acao">
+                <table id="tabela-acoes" class="striped">
+                    <thead>
+                        <tr>
+                            <th>Empresa</th>
+                            <th>Código</th>
+                            <th>Setor</th>
+                            <th>Preço(R$)</th>
+                            <th>Qtde.</th>
+                            <th>Custo Base(R$)</th>
+                            <th>Valor de Mercado(R$)</th>
+                            <th>Ganho(R$)</th>
+                            <th>Variação Mensal(%)</th>
+                            <th>Variaçao Anual(%)</th>
+                            <th>Peso(%)</th>
+                    </thead>
+                </tr>
+                    <tbody id="transaction-stocks">
+
+                        <tr>
+                            <td>Estácio S.A</td>
+                            <td>ESTC3</td>
+                            <td>Educação</td>
+                            <td>30</td>
+                            <td>100</td>
+                            <td>3010</td>
+                            <td>3000</td>
+                            <td>-10</td>
+                            <td>2</td>
+                            <td>10</td>
+                            <td>50</td>
+                        </tr>
+                        <tr>
+                            <td>Iatúsa S.A</td>
+                            <td>ITSA4</td>
+                            <td>Financeiro</td>
+                            <td>30</td>
+                            <td>100</td>
+                            <td>3010</td>
+                            <td>3000</td>
+                            <td>-10</td>
+                            <td>2</td>
+                            <td>10</td>
+                            <td>50</td>
+                        </tr>
+
+                    </tbody>
+                </table>
+            </section>
+            <section class="container buttons">
+                <a id="btn-delete" type="submit" class="btn-floating waves-effect waves-light btn-large red" name="btn-deletar"><i class="material-icons">delete</i></a>
+
+                <a id="btn-alterar" type="submit" class="btn-floating btn-large waves-effect waves-light blue" name="btn-editar"><i class="material-icons">mode_edit</i></a>
+
+                <a href="/transactions/stocks/form" id="btn-alterar" type="submit" class="btn-floating btn-large waves-effect waves-light green" name="btn-alterar"><i class="material-icons">add</i></a>
+            </section>
+        </main>
+        <script src="/js/libs/jquery.js"></script>
+        <script type="text/javascript" src="/js/libs/materialize.min.js"></script>
+        <script src="/js/transactionList.js"></script>
+    </body>
+</html>

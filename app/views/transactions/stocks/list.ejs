@@ -49,16 +49,16 @@
                                 <input type="checkbox" id="all-checked"/>
                                 <label for="all-checked"></label>
                             </th>
-                            <th>Tipo</th>
-                            <th>Ticker</th>
-                            <th>Data</th>
-                            <th>Preço (R$)</th>
-                            <th>Quantidade</th>
-                            <th>Custo (R$)</th>
-                            <th>Valor Total (R$)</th>
+                            <th class="center">Tipo</th>
+                            <th class="center">Ticker</th>
+                            <th class="center">Data</th>
+                            <th class="center">Preço (R$)</th>
+                            <th class="center">Quantidade</th>
+                            <th class="center">Custo (R$)</th>
+                            <th class="center">Valor Total (R$)</th>
                         </tr>
                     </thead>
-                    <tbody id="transaction-shares">
+                    <tbody id="transaction-stocks">
 
                         <% for(var i = 0; i < list.length; i++) { %>
                             <tr id="<%= list[i].id_transaction %>" class="acao">
@@ -66,13 +66,13 @@
                                     <input type="checkbox" id="stock-<%= list[i].id_transaction %>"/>
                                     <label for="stock-<%= list[i].id_transaction %>"></label>
                                 </td>
-                                <td class="type-info"><%= list[i].type %></td>
-                                <td class="ticker-info"><%= list[i].ticker %></td>
-                                <td class="date-info"><%= list[i].date %></td>
-                                <td class="price-info"><%= list[i].price %></td>
-                                <td class="quantity-info"><%= list[i].quantity %></td>
-                                <td class="cost-info"><%= list[i].cost %></td>
-                                <td class="total_value-info"><%= list[i].total_value %></td>
+                                <td class="type-info center"><%= list[i].type %></td>
+                                <td class="ticker-info center"><%= list[i].ticker %></td>
+                                <td class="date-info center"><%= list[i].date %></td>
+                                <td class="price-info center"><%= list[i].price %></td>
+                                <td class="quantity-info center"><%= list[i].quantity %></td>
+                                <td class="cost-info center"><%= list[i].cost %></td>
+                                <td class="total_value-info center"><%= list[i].total_value %></td>
                             </tr>
                         <% } %>
 
@@ -84,12 +84,12 @@
 
                 <a id="btn-alterar" type="submit" class="btn-floating btn-large waves-effect waves-light blue" name="btn-editar"><i class="material-icons">mode_edit</i></a>
 
-                <a href="/transacoes/acoes/form" id="btn-alterar" type="submit" class="btn-floating btn-large waves-effect waves-light green" name="btn-alterar"><i class="material-icons">add</i></a>
+                <a href="/transactions/stocks/form" id="btn-alterar" type="submit" class="btn-floating btn-large waves-effect waves-light green" name="btn-alterar"><i class="material-icons">add</i></a>
             </section>
         </main>
         <script src="/js/libs/jquery.js"></script>
         <script type="text/javascript" src="/js/libs/materialize.min.js"></script>
-        <script src="/js/removeTransaction.js"></script>
-        <script src="/js/transactionsFilter.js"></script>
+        <script src="/js/transactionList.js"></script>
+        <script src="/js/transactionsFilterList.js"></script>
     </body>
 </html>

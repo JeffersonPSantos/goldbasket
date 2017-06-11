@@ -4,11 +4,18 @@
 
 .buttons {
     margin-top: 20px;
-
 }
 
 .buttons a {
-    margin-right: 20px;
-    margin-left: 10px;
+    margin: 20px 10px;
+}
 
+.campo-valido {
+    background-color: red;
+}
+
+#error-message {
+    margin-top: 10px;
+    line-height: 1.5;
+    color: red;
 }

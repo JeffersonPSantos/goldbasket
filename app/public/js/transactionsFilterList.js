@@ -1,7 +1,7 @@
 var searchType = $('#search-type');
 var searchTicker = $('#search-ticker');
 var searchDate = $('#search-date');
-var sharesList = $('#transaction-shares').find('tr');
+var stocksList = $('#transaction-stocks').find('tr');
 
 searchType.on('input', { classInfo : '.type-info'}, filter);
 searchTicker.on('input', { classInfo : '.ticker-info'}, filter);
@@ -11,7 +11,7 @@ searchDate.on('input', { classInfo : '.date-info'}, filter);
 function filter(info) {
 
     if ($(this).val().length > 0) {
-        for (var i = 0; i < sharesList.length; i++) {
+        for (var i = 0; i < stocksList.length; i++) {
 
             var td = $(info.data.classInfo)[i];
             var fieldValue = $(td).text();
@@ -19,15 +19,15 @@ function filter(info) {
             var expression = new RegExp($(this).val(), 'i');
 
             if (expression.test(fieldValue)) {
-                $(sharesList[i]).removeClass('invisible');
+                $(stocksList[i]).removeClass('invisible');
             } else {
-                $(sharesList[i]).addClass('invisible');
+                $(stocksList[i]).addClass('invisible');
             }
         }
     }
     else {
-        for (var i = 0; i < sharesList.length; i++) {
-            $(sharesList[i]).removeClass('invisible');
+        for (var i = 0; i < stocksList.length; i++) {
+            $(stocksList[i]).removeClass('invisible');
         }
     }
 }

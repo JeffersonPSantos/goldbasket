@@ -28,12 +28,27 @@ ON shares.id_share = buy_shares.id_share;
 CREATE TABLE shares_transaction (
     id_transaction int(10) NOT NULL AUTO_INCREMENT,
     type varchar(5) DEFAULT NULL,
+    ticker varchar(10) DEFAULT NULL,
     date date DEFAULT NULL,
     price decimal(10,4) DEFAULT NULL,
     quantity int(11) DEFAULT NULL,
     total_value decimal(10,4) DEFAULT NULL,
     cost decimal(8,4) DEFAULT NULL,
-    ticker varchar(10) DEFAULT NULL,
+    brokerage decimal(8,4) DEFAULT NULL,
     PRIMARY KEY (id_transaction),
     FOREIGN KEY (ticker) REFERENCES shares(ticker)
 );
+
+CREATE TABLE stocks_test (
+    ticker varchar(10) DEFAULT NULL,
+    price decimal(10,4) DEFAULT NULL,
+    quantity int(11) DEFAULT NULL,
+    total_value decimal(10,4) DEFAULT NULL,
+    cost decimal(8,4) DEFAULT NULL,
+);
+
+CREATE TABLE stocks_test (
+    quantity int(11) DEFAULT NULL
+);
+
+insert into stocks_test select sum(quantity) as qtd from shares_transaction where ticker = 'AFLU5'

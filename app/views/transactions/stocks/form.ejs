@@ -20,7 +20,7 @@
     </header>
     <main>
         <section class="container">
-            <form id="add-form" class="col s12" action="/transacoes/acoes" method="post">
+            <form id="add-form" class="col s12" action="/transactions/stocks" method="post">
                 <div class="erros">
                     <ul>
                         <% for(var i = 0; i < errorValidation.length; i++){ %>
@@ -42,8 +42,8 @@
                     </div>
 
                     <div class="input-field col s4 grupo">
-                        <label for="add-ticker">Código</label>
-                        <input list="ticker-list" name="ticker" id="add-ticker" type="text">
+                        <label for="add-ticker" data-error="wrong" data-success="right">Código</label>
+                        <input list="ticker-list" name="ticker" id="add-ticker" type="text" placeholder="digite o código desejado" class="validate">
                         <datalist id="ticker-list">
                             <% for(var i = 0; i < tickers.length; i++){ %>
                             <option value="<%= tickers[i].ticker %>"><%= tickers[i].company_name %></option>
@@ -68,19 +68,17 @@
                     </div>
 
                     <div class="input-field col s4 grupo">
-                        <input id="add-brokerage" name="cost" type="text" placeholder="digite o valor da corretagem">
+                        <input id="add-brokerage" name="brokerage" type="text" placeholder="digite o valor da corretagem">
                         <label for="add-brokerage">Corretagem</label>
                     </div>
                 </div>
 
-                <!-- <a id="add-share" class="btn-floating btn-large waves-effect waves-light green botao bto-principal"><i class="material-icons">add</i></a> -->
-
             </form>
         </section>
         <section class="container buttons">
-            <a id="add-share" class="btn-floating btn-large waves-effect waves-light green botao bto-principal"><i class="material-icons">add</i></a>
+            <a id="add-stock" class="btn-floating btn-large waves-effect waves-light green botao bto-principal"><i class="material-icons">add</i></a>
 
-            <a href="/transacoes/acoes" class="btn-floating btn-large waves-effect waves-light blue" name="btn-editar"><i class="material-icons">toc</i></a>
+            <a href="/transactions/stocks" class="btn-floating btn-large waves-effect waves-light blue" name="btn-editar"><i class="material-icons">toc</i></a>
 
             <a href="/" class="btn-floating btn-large waves-effect waves-light red" name="btn-alterar"><i class="material-icons">home</i></a>
 
@@ -89,7 +87,7 @@
     </main>
     <script src="/js/libs/jquery.js"></script>
     <script type="text/javascript" src="/js/libs/materialize.min.js"></script>
-    <script src="/js/form.js"></script>
+    <script src="/js/transactionForm.js"></script>
 </body>
 
 </html>

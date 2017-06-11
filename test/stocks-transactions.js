@@ -14,7 +14,7 @@ describe('Transaction Controller', function () {
     }
 
     it('#cadastro de acoes tudo preenchido', function (done) {
-        request.post('/transacoes/acoes')
+        request.post('/transactions/stocks')
         .send({
             type:'buy',
             ticker:'RAIL3',
@@ -30,7 +30,7 @@ describe('Transaction Controller', function () {
     });
 
     it('#listagem de acoes html',function (done) {
-        request.get('/transacoes/acoes')
+        request.get('/transactions/stocks')
         .set('Accept', 'text/html')
         .expect('Content-Type', /html/)
         .expect(200, done)
@@ -44,7 +44,7 @@ describe('Transaction Controller', function () {
     });
 
     it('#remoção de transações', function (done) {
-        request.post('/transacoes/acoes/')
+        request.post('/transactions/stocks/')
         .send({
             id_transaction: 52
         })

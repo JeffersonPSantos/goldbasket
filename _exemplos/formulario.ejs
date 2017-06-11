@@ -1,0 +1,35 @@
+<form id="add-form" action="/transacoes/acoes" method="post">
+    <div class="grupo">
+        <label for="type">Tipo:</label>
+        <select id="type" name="type" class="campo campo-medio">
+              <option value="buy">Comprar</option>
+              <option value="sell">Vender</option>
+        </select>
+    </div>
+    <div class="grupo">
+        <label for="ticker">Código:</label>
+        <input list="ticker-list" name="ticker" class="campo campo-medio">
+        <datalist id="ticker-list">
+            <% for(var i = 0; i < tickers.length; i++){ %>
+            <option value="<%= tickers[i].ticker %>"><%= tickers[i].company_name %></option>
+            <% } %>
+        </datalist>
+    </div>
+    <div class="grupo">
+        <label for="add-date">Data:</label>
+        <input id="add-date" name="date" type="date" class="campo campo-medio">
+    </div>
+    <div class="grupo">
+        <label for="add-quantity">Quantidade:</label>
+        <input id="add-quantity" name="quantity" type="text" placeholder="digite quantidade de ações" class="campo campo-medio">
+    </div>
+    <div class="grupo">
+        <label for="add-price">Preço:</label>
+        <input id="add-price" name="price" type="text" placeholder="digite o preco da ação" class="campo campo-medio">
+    </div>
+    <div class="grupo">
+        <label for="add-brokerage">Corretagem:</label>
+        <input id="add-brokerage" name="cost" type="text" placeholder="digite o valor da corretagem" class="campo campo-medio">
+    </div>
+    <button id="add-share" class="botao bto-principal">Adicionar</button>
+</form>
